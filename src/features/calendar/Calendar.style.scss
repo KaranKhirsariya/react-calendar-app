@@ -1,0 +1,103 @@
+$pink: #e2c2b9;
+$lightgreen: #bfd8b8;
+$yellow: #e7eab5;
+$cream: #f1f7e7;
+$green: #28cc9e;
+$lightblue: #e3f8ff;
+
+$day28: radial-gradient(hsla(87, 98%, 59%, 0.2), hsla(87, 100%, 55%, 0.8));
+$day29: $day28;
+$day30: radial-gradient(hsla(278, 98%, 59%, 0.2), hsla(278, 91%, 69%, 0.826));
+$day31: radial-gradient(rgba(253, 237, 48, 0.2), rgba(201, 187, 38, 0.8));
+
+.calendar {
+  grid-template-columns: 5fr 7fr;
+  grid-template-rows: 3fr 7fr;
+  width: 100%;
+  height: 100%;
+  & > * {
+    // border-radius: 2em;
+    padding: 1.5em;
+    border-radius: 1em;
+  }
+
+  .selected {
+    font-weight: bold;
+  }
+
+  .yearBox {
+    color: darken($pink, 70%);
+    background-color: $pink;
+  }
+  .monthsBox {
+    background-color: $lightgreen;
+
+    .monthItem {
+      font-size: small;
+      cursor: pointer;
+      padding-inline: 0.5em;
+      border-radius: 0.4em;
+
+      // &.last-day-28,
+      // &.last-day-29 {
+      //   background-image: $day28;
+      // }
+      // &.last-day-30 {
+      //   background-image: $day30;
+      // }
+      // &.last-day-31 {
+      //   background-image: $day31;
+      // }
+    }
+  }
+  .weeksBox {
+    background-color: $cream;
+    font-size: small;
+    .weekItem {
+      &.day-6 {
+        color: darken($cream, 80%);
+      }
+    }
+  }
+  .datesBox {
+    background-color: $yellow;
+
+    .dateItem {
+      cursor: pointer;
+      position: relative;
+      border-radius: 0.4em;
+      // &.date-28:not(.leapYear),
+      // .leapYear &.date-29 {
+      //   background-image: $day28;
+      // }
+      // &.date-30 {
+      //   background-image: $day30;
+      // }
+      // &.date-31 {
+      //   background-image: $day31;
+      // }
+      &.today {
+        outline: darken($yellow, 20%);
+      }
+      
+      &.selected {
+        outline: darken($yellow, 90%);
+      }
+      .taskDot {
+        background-color: blueviolet;
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        border-radius: 10px;
+        display: none;
+        right: 6px;
+        bottom: 6px;
+      }
+
+      &.hasTasks > .taskDot {
+        position: absolute;
+        display: block;
+      }
+    }
+  }
+}

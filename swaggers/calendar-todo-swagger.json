@@ -1,0 +1,167 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/todo-lists": {
+      "get": {
+        "operationId": "TodoLists_findAll",
+        "parameters": [
+          {
+            "name": "year",
+            "required": false,
+            "in": "query",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "month",
+            "required": false,
+            "in": "query",
+            "schema": { "type": "number" }
+          }
+        ],
+        "responses": { "200": { "description": "" } }
+      }
+    },
+    "/todo-lists/{uid}": {
+      "get": {
+        "operationId": "TodoLists_findOne",
+        "parameters": [
+          {
+            "name": "uid",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } }
+      },
+      "patch": {
+        "operationId": "TodoLists_update",
+        "parameters": [
+          {
+            "name": "uid",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateTodoListDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } }
+      },
+      "delete": {
+        "operationId": "TodoLists_remove",
+        "parameters": [
+          {
+            "name": "uid",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } }
+      }
+    },
+    "/todos": {
+      "post": {
+        "operationId": "Todos_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateTodoDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } }
+      }
+    },
+    "/todos/{uid}": {
+      "get": {
+        "operationId": "Todos_findOne",
+        "parameters": [
+          {
+            "name": "uid",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } }
+      },
+      "patch": {
+        "operationId": "Todos_update",
+        "parameters": [
+          {
+            "name": "uid",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateTodoDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } }
+      },
+      "delete": {
+        "operationId": "Todos_remove",
+        "parameters": [
+          {
+            "name": "uid",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } }
+      }
+    }
+  },
+  "info": {
+    "title": "Calendar ToDo",
+    "description": "Calendar app ToDo api",
+    "version": "0.0.1",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "UpdateTodoListDto": {
+        "type": "object",
+        "properties": { "dueDate": { "type": "string" } }
+      },
+      "CreateTodoDto": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "listId": { "type": "string" },
+          "dueDate": { "type": "string" }
+        },
+        "required": ["title"]
+      },
+      "UpdateTodoDto": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "listId": { "type": "string" },
+          "dueDate": { "type": "string" }
+        }
+      }
+    }
+  }
+}
