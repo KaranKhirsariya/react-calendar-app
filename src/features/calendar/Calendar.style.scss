@@ -3,7 +3,7 @@ $lightgreen: #bfd8b8;
 $yellow: #e7eab5;
 $cream: #f1f7e7;
 $green: #28cc9e;
-$lightblue: #e3f8ff;
+$blue: #3b4df2;
 
 $day28: radial-gradient(hsla(87, 98%, 59%, 0.2), hsla(87, 100%, 55%, 0.8));
 $day29: $day28;
@@ -23,6 +23,8 @@ $day31: radial-gradient(rgba(253, 237, 48, 0.2), rgba(201, 187, 38, 0.8));
 
   .selected {
     font-weight: bold;
+    border-radius: 0.4em;
+    outline: solid 2px $blue;
   }
 
   .yearBox {
@@ -57,12 +59,9 @@ $day31: radial-gradient(rgba(253, 237, 48, 0.2), rgba(201, 187, 38, 0.8));
       border-radius: 0.4em;
 
       &.today {
-        outline: solid 1px darken($yellow, 50%);
+        outline: solid 1px darken($yellow, 40%);
       }
 
-      &.selected {
-        outline: solid 2px darken($yellow, 90%);
-      }
       .taskDot {
         background-color: blueviolet;
         position: absolute;

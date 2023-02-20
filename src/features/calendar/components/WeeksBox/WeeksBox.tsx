@@ -38,9 +38,10 @@ function WeeksBox() {
                       i + 1 === date % 7 &&
                       "selected"
                   )}
+                  
                 >
                   <Center h="100%">
-                    <Text>{day.label}</Text>
+                    <Text color={day.idx === 6 ? "blackAlpha.500" : "blackAlpha.700"}>{day.label}</Text>
                   </Center>
                 </GridItem>
               );
