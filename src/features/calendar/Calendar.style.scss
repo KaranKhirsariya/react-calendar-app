@@ -37,17 +37,6 @@ $day31: radial-gradient(rgba(253, 237, 48, 0.2), rgba(201, 187, 38, 0.8));
       cursor: pointer;
       padding-inline: 0.5em;
       border-radius: 0.4em;
-
-      // &.last-day-28,
-      // &.last-day-29 {
-      //   background-image: $day28;
-      // }
-      // &.last-day-30 {
-      //   background-image: $day30;
-      // }
-      // &.last-day-31 {
-      //   background-image: $day31;
-      // }
     }
   }
   .weeksBox {
@@ -66,22 +55,13 @@ $day31: radial-gradient(rgba(253, 237, 48, 0.2), rgba(201, 187, 38, 0.8));
       cursor: pointer;
       position: relative;
       border-radius: 0.4em;
-      // &.date-28:not(.leapYear),
-      // .leapYear &.date-29 {
-      //   background-image: $day28;
-      // }
-      // &.date-30 {
-      //   background-image: $day30;
-      // }
-      // &.date-31 {
-      //   background-image: $day31;
-      // }
+
       &.today {
-        outline: darken($yellow, 20%);
+        outline: solid 1px darken($yellow, 50%);
       }
-      
+
       &.selected {
-        outline: darken($yellow, 90%);
+        outline: solid 2px darken($yellow, 90%);
       }
       .taskDot {
         background-color: blueviolet;

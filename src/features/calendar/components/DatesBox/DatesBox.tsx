@@ -46,7 +46,10 @@ function DatesBox() {
     }
   }, [todoList, date, month, year]);
 
-  const onPopOverClose = () => setPopoverOpen(false);
+  const onPopOverClose = () => {
+    setPopoverOpen(false);
+    setCurrentTodos(undefined)
+  };
 
   return (
     <>
@@ -69,7 +72,6 @@ function DatesBox() {
         currentTodos={currentTodos}
         isOpen={popoverOpen}
         onClose={onPopOverClose}
-        // closeOnBlur={false}
       />
     </>
   );

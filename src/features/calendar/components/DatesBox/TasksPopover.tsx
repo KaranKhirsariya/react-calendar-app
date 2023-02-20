@@ -18,6 +18,7 @@ import { useAppSelector } from "app/hooks";
 import dayjs from "dayjs";
 import {
   selectDate,
+  selectDateIso,
   selectMonth,
   selectYear,
 } from "features/calendar/calendarSlice";
@@ -42,7 +43,7 @@ function TasksPopover({ onClose, currentTodos, isOpen }: Props) {
   const year = useAppSelector(selectYear);
   const date = useAppSelector(selectDate);
   const month = useAppSelector(selectMonth);
-
+  const dateIso = useAppSelector(selectDateIso);
   const [newTodoText, setNewTodoText] = useState("");
   const newTodoInputRef = useRef<HTMLTextAreaElement | null>(null);
   const [updateTodo, { isLoading: isUpdatingTodo }] = useTodosUpdateMutation();
@@ -113,7 +114,9 @@ function TasksPopover({ onClose, currentTodos, isOpen }: Props) {
       </PopoverAnchor>
       <PopoverContent borderRadius={"1em"}>
         <PopoverHeader>
-          <Text fontSize="1.4em">Tasks</Text>
+          <Text fontSize="1.4em">
+            {dateIso && dayjs(dateIso).format("DD MMM, YYYY")}
+          </Text>
           <PopoverCloseButton />
         </PopoverHeader>
         <PopoverBody>
