@@ -42,13 +42,13 @@ function DatesBox() {
         )
       );
     } else {
-      setCurrentTodos(undefined);
+      // setCurrentTodos(undefined);
     }
   }, [todoList, date, month, year]);
 
   const onPopOverClose = () => {
     setPopoverOpen(false);
-    setCurrentTodos(undefined)
+    // setCurrentTodos(undefined)
   };
 
   return (

@@ -27,11 +27,10 @@ const initialState: CalendarType = {
   dateIso: dayjs().format("YYYY-MM-DD"),
 };
 const getUpdatedIsoDate = (state: CalendarType) => {
-  if (state.month != null) {
-    const formatted = `${state.year}-${state.month + 1}-${state.date}`
-    const dayjsDate = dayjs(formatted);
+  if (state.month != null && state.date != null) {
+    const dayjsDate = dayjs(new Date(state.year,state.month,state.date));
     if (dayjsDate.isValid()) {
-      return formatted;
+      return dayjsDate.format('YYYY-MM-DD');
     }
   }
   return null;
