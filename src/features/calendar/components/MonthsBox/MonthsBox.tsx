@@ -32,7 +32,7 @@ function MonthsBox() {
                 `last-day-${d.daysInMonth()}`,
                 selectedMonthIndex === idx && "selected"
               )}
-              colStart={d.day() + 1}
+              colStart={d.day()}
               onClick={() => dispatch(monthChanged(idx))}
             >
               <Center h="100%">

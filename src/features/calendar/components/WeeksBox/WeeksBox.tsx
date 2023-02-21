@@ -11,7 +11,7 @@ function WeeksBox() {
   const date = useAppSelector(selectDate);
   const month = useAppSelector(selectMonth);
   const monthColumn = useMemo(
-    () => (month != null ? dayjs(new Date(year, month, 1)).day() : null),
+    () => (month != null ? dayjs(new Date(year, month, 0)).day() : null),
     [year, month]
   );
   return (
